@@ -1,4 +1,5 @@
 #pycaret library is used to implement explainable ai with fewer lines of code
+
 import pandas as pd
 from pycaret.datasets import get_data
 from pycaret.classification import *
@@ -27,3 +28,5 @@ print(new_data.head())
 #
 # print('Generating reason plot,it tells the reason for a specific patient')
 # interpret_model(model,plot='reason')
+
+plot_model(new_data,plot='feature')  #which features matter most for all patients.
