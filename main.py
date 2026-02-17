@@ -1,20 +1,29 @@
 #pycaret library is used to implement explainable ai with fewer lines of code
-
+import pandas as pd
 from pycaret.datasets import get_data
 from pycaret.classification import *
 data = get_data('diabetes')
 
-s = setup(data,target='Class variable',session_id=43)
 
+s = setup(data,target='Class variable',session_id=43) #setup function do train_test splitting,cleaning,target finding and finding best model .
 
-best_model = compare_models()
-print(best_model)
+pd.set_option('display.width', 1000) #This line show all columns in same one line
+pd.set_option('display.max_columns',None) #This line do not show .... for columns instead all names of columns
 
-print("Creating model  Random Forest,as lrp is good but random forest is complex so it is selected")
-model = create_model('rf')
+print(data.head())
 
-print('Generating summary plot (which show which column is important for the whole dataset)')
-interpret_model(model,plot='summary')
+new_data = data.rename(columns={'Number of times pregnant':'Prignanacies count','Class variable':'target'})
 
-print('Generating reason plot,it tells the reason for a specific patient')
-interpret_model(model,plot='reason')
+print(new_data.head())
+
+# best_model = compare_models()
+# print(best_model)
+#
+# print("Creating model  Random Forest,as lrp is good but random forest is complex so it is selected")
+# model = create_model('rf')
+#
+# print('Generating summary plot (which show which column is important for the whole dataset)')
+# interpret_model(model,plot='summary')
+#
+# print('Generating reason plot,it tells the reason for a specific patient')
+# interpret_model(model,plot='reason')
