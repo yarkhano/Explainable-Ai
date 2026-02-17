@@ -12,7 +12,7 @@ pd.set_option('display.max_columns',None) #This line do not show .... for column
 
 print(data.head())
 
-new_data = data.rename(columns={'Number of times pregnant':'Prignanacies count','Class variable':'target'})
+new_data = data.rename(columns={'Number of times pregnant':'Pregnancies','Plasma glucose concentration a 2 hours in an oral glucose tolerance test' : 'Glucose','Diastolic blood pressure (mm Hg)':'BloodPressure','Triceps skin fold thickness (mm)':'SkinThickness','2-Hour serum insulin (mu U/ml)':'Insulin','Body mass index (weight in kg/(height in m)^2)':'BMI','Diabetes pedigree function':'Pedigree','Age (years)':'Age','Class variable':'Outcome'})
 
 print(new_data.head())
 
