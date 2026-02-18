@@ -26,7 +26,7 @@ print(best_model)
 print("Creating model  Random Forest,as lrp is good but random forest is complex so it is selected")
 model = create_model('rf')
 
-evaluate_model(model)
+evaluate_model(model) #When you run evaluate_model(model), PyCaret opens an interactive window.
 
 print('Generating summary plot (which show which column is important for the whole dataset)')
 interpret_model(model,plot='summary')
