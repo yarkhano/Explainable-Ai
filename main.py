@@ -26,22 +26,11 @@ print(best_model)
 print("Creating model  Random Forest,as lrp is good but random forest is complex so it is selected")
 model = create_model('rf')
 
-evaluate_model(model) #When you run evaluate_model(model), PyCaret opens an interactive window.
-
 print('Generating summary plot (which show which column is important for the whole dataset)')
 interpret_model(model,plot='summary')
 
 print('Generating reason plot,it tells the reason for a specific patient')
-interpret_model(model,plot='reason')
 
-plot_model(model,plot='feature')  #which features matter most for all patients.
+plot_model(model,plot='feature')  #which features matter most for all patients./show clear lines for each features
 
-single_patient_row = new_data.iloc[[0]]  #Selecting one patient (first row) for explanation
 
-prediction = predict_model(model, data=single_patient_row) #shows only yes or no (probability)
-
-print(prediction)
-
-interpret_model(model,plot='reason',observation=0) #Why the model gave a specific prediction for ONE particular person (row).
-
-predict_model(model, data=new_data) #The model predicts YES with 87% confidence.
